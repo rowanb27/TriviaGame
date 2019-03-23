@@ -1,0 +1,30 @@
+body {
+  background-image: url("../images/Main\ Background.png");
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Karla', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  padding: 20px;
+  font-size: 45px;
+}
+
+.wrapper {
+  margin: 10px auto;
+  background-color: rgba(162, 176, 207, 0.7);
+  border: 2px solid #403fd3;
+  height: 500px;
+  width: 60%;
+  text-align: center;
+}
+
+.btn {
+  position: relative;
+  bottom: -150px;
+}
