@@ -33,10 +33,62 @@ $(document).ready(function() {
           answer: 0,
           correctImage: "assets\images\orderOfOpsGif.webp",
           incorrectImage: "assets\images\orderOfOperations.JPG"
-      },  
-  ]
-  console.log(options);
+      } 
+  ];
 
+  var correctCount = 0;
+  var wrongCount = 0;
+  var unanswerCount = 0;
+  var timer = 20;
+  var intervalId;
+  var userGuess = "";
+  var running = false;
+  var qCount = options.length;
+  var pick;
+  var index;
+  var newArray = [];
+  var holder = [];
+
+  $("#reset").hide();
+
+  //Click the Start button to begin game
+  $("#start").on("click", function() {
+      $("#start").hide();
+      displayQuestion();
+      runTimer();
+      for (var i = 0; i < options.length; i++) {
+          holder.push(options[i]);
+      }
+  });
+
+ //Start the Timer
+  function runTimer() {
+      if (!running) {
+      intervalId = setInterval(decrement, 1000);
+      running = true;
+     }
+  };
+
+  //Timer countdown
+  function decrement() {
+      $("#timeleft").html("<h3>Time remaining: " + timer + "</h3>");
+      timer--;
+
+      //Stop timer if reaches ZERO
+      if (timer === 0) {
+          unanswerCount++;
+          stop();
+          $("#answerblock").html("<p>Time is up! The correct answer is: " + pick.choice[pick.answer] + "</p>");
+          hidepicture();
+       } 
+  };
+  
+  //Stop the Timer
+  function stop() {
+      running = false;
+      clearInterval(intervalId);
+  };
+  
 
 
 
