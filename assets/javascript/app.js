@@ -88,7 +88,42 @@ $(document).ready(function() {
       running = false;
       clearInterval(intervalId);
   };
-  
+
+  //Randomly pick unanswered question in array
+  //Display question and loop through and display choices
+  function displayQuestion() {
+      index = Math.floor(Math.random()*options.length);
+      pick = options[index];
+
+       //Iterate through answer array and display
+      $("#questionblock").html("<h2>" + pick.question + "</h2>");
+      for (var i = 0; i < pick.choice.length; i++) {
+          var userChoice = $("<div>");
+          userChoice.addClass("answerchoice");
+          userChoice.html(pick.choice[i]);
+          //assign array position to it so can check answer
+          userChoice.attr("data-guessvalue", i);
+
+      }
+ 
+
+  //Click function to select answer and outcomes
+  $(".answerchoice").on("click", function() {
+     //Grab array position from userGuess
+       userGuess = parseInt($(this).attr("data-guessvalue"));
+
+      //Correct guess or wrong guess outcomes
+      if (userGuess === pick.answer) {
+          stop();
+          correctCount++;
+          userGuess = "";
+          $("#answerblock").html("<p>Correct!</p>");
+          hidepicture();
+      }
+    });
+  };
+
+
 
 
 
