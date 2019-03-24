@@ -1,6 +1,6 @@
 $(document).ready(function() {
   
-  // Created a variable and set variable to an array of objects containing the following: question, choices, answer, 2 images(1 gif, 1 solved answer)
+  // Created a variable and set variable to an array of objects containing the following: question, choices, answer, 2 images(incorrect answer, correct answer)
 
   var options = [
       {
