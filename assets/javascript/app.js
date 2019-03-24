@@ -12,7 +12,7 @@ $(document).ready(function() {
       },
 
       {
-          question: "assets/images/limit.jpg", 
+          question: "assets/images/limit.jpg", //How can you make image appear instead of string?(see line 96)
           choice: [ "-.455", "I give up", "0", "The limit does not exist" ],
           answer: 3,
           correctImage: "assets/images/limitGif.webp",
@@ -96,7 +96,12 @@ $(document).ready(function() {
       pick = options[index];
 
        //Iterate through answer array and display
+       //Create if/else statement in order for question[1] to appear as Image instead of String
+       if (pick.question.startsWith("assets/images/limit.jpg")) {
+           $("#questionblock").html("<img src=" + pick.question + ">");
+       } else {
       $("#questionblock").html("<h2>" + pick.question + "</h2>");
+       };
       for (var i = 0; i < pick.choice.length; i++) {
           var userChoice = $("<div>");
           userChoice.addClass("answerchoice");
@@ -106,7 +111,7 @@ $(document).ready(function() {
           $("#answerblock").append(userChoice);
 
       }
- 
+       
 
   //Click function to select answer and outcomes
   $(".answerchoice").on("click", function() {
