@@ -8,15 +8,15 @@ $(document).ready(function() {
           choice: [ "3", "1/2", "6", "2/11" ],
           answer: 0,
         //  correctImage: "assets\images\3.webp",
-          incorrectImage: "assets\images\3.JPG"
+          incorrectImage: "assets/images/3.JPG"
       },
 
       {
-          question: "assets\images\limit.jpg", 
+          question: "assets/images/limit.jpg", 
           choice: [ "-.455", "I give up", "0", "The limit does not exist" ],
           answer: 3,
         //  correctImage: "assets\images\limitGif.webp",
-          incorrectImage: "assets\images\limitGif.webp"
+          incorrectImage: "assets/images/limitGif.webp"
       },
 
       {
@@ -24,7 +24,7 @@ $(document).ready(function() {
           choice: [ "10", "5", "8", "Math is hard" ],
           answer: 2,
         //  correctImage: "assets\images\fibGif.webp",
-          incorrectImage: "assets\images\fibonacci.jpg"
+          incorrectImage: "assets/images/fibonacci.jpg"
       },  
 
       {
@@ -32,7 +32,7 @@ $(document).ready(function() {
           choice: [ "2", "-2", "4", "8" ],
           answer: 0,
          // correctImage: "assets\images\orderOfOpsGif.webp",
-          incorrectImage: "assets\images\orderOfOperations.JPG"
+          incorrectImage: "assets/images/orderOfOperations.JPG"
       } 
   ];
 
