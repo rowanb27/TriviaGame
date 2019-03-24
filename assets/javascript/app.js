@@ -7,7 +7,7 @@ $(document).ready(function() {
           question: "What would be the value of x in the equation 2x + 5 = 11?",
           choice: [ "3", "1/2", "6", "2/11" ],
           answer: 0,
-        //  correctImage: "assets\images\3.webp",
+          correctImage: "assets/images/3.webp",
           incorrectImage: "assets/images/3.JPG"
       },
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
           question: "assets/images/limit.jpg", 
           choice: [ "-.455", "I give up", "0", "The limit does not exist" ],
           answer: 3,
-        //  correctImage: "assets\images\limitGif.webp",
+          correctImage: "assets/images/limitGif.webp",
           incorrectImage: "assets/images/limitGif.webp"
       },
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
           question: "The Fibonacci Sequence is the series of numbers: 0, 1, 1, 2, 3, 5,... What is the next number in the sequence?",
           choice: [ "10", "5", "8", "Math is hard" ],
           answer: 2,
-        //  correctImage: "assets\images\fibGif.webp",
+          correctImage: "assets/images/fibGif.webp",
           incorrectImage: "assets/images/fibonacci.jpg"
       },  
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
           question: "What would be the value of x in the equation 2+2×2−2×2?",
           choice: [ "2", "-2", "4", "8" ],
           answer: 0,
-         // correctImage: "assets\images\orderOfOpsGif.webp",
+          correctImage: "assets/images/orderOfOpsGif.webp",
           incorrectImage: "assets/images/orderOfOperations.JPG"
       } 
   ];
@@ -119,7 +119,7 @@ $(document).ready(function() {
           correctCount++;
           userGuess = "";
           $("#answerblock").html("<p>Correct!</p>");
-          hidepicture();
+          hideCorrectpicture();
       } else {
           stop();
           wrongCount++;
@@ -130,8 +130,39 @@ $(document).ready(function() {
     });
   };
 
+// Function to display IncorrectImage if answered wrong or if time runs out
   function hidepicture() {
       $("#answerblock").append("<img src=" + pick.incorrectImage + ">");
+      newArray.push(pick);
+      options.splice(index,1);
+
+      var hidpic = setTimeout(function() {
+          $("#answerblock").empty();
+          timer = 20;
+
+          //runs the score screen if all questions answered
+          if ((wrongCount + correctCount + unanswerCount) === qCount) {
+              $("#questionblock").empty();
+              $("#questionblock").html("<h3>Game Over! Here's your scoresheet: </h3>");
+              $("#answerblock").append("<h4> Correct: " + correctCount + "</h4>");
+              $("#answerblock").append("<h4> Incorrect: " + wrongCount + "</h4>");
+              $("#answerblock").append("<h4> Unanswered: " + unanswerCount + "</h4>");
+              $("#reset").show();
+              correctCount = 0;
+              wrongCount = 0;
+              unanswerCount = 0;
+
+          } else {
+              runTimer();
+              displayQuestion();
+          }
+      
+        }, 3000);
+  }
+
+// Function to display correctImage if answered correct
+   function hideCorrectpicture() {
+      $("#answerblock").append("<img src=" + pick.correctImage + ">");
       newArray.push(pick);
       options.splice(index,1);
 
