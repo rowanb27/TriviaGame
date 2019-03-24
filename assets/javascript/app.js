@@ -12,7 +12,7 @@ $(document).ready(function() {
       },
 
       {
-          question: "assets/images/limit.jpg", //How can you make image appear instead of string?(see line 96)
+          question: "assets/images/limit.jpg", 
           choice: [ "-.455", "I give up", "0", "The limit does not exist" ],
           answer: 3,
           correctImage: "assets/images/limitGif.webp",
@@ -39,7 +39,7 @@ $(document).ready(function() {
   var correctCount = 0;
   var wrongCount = 0;
   var unanswerCount = 0;
-  var timer = 20;
+  var timer = 12;
   var intervalId;
   var userGuess = "";
   var running = false;
@@ -49,6 +49,7 @@ $(document).ready(function() {
   var newArray = [];
   var holder = [];
 
+//Hide reset/'Play Again?' button
   $("#reset").hide();
 
   //Click the Start button to begin game
@@ -100,7 +101,7 @@ $(document).ready(function() {
        if (pick.question.startsWith("assets/images/limit.jpg")) {
            $("#questionblock").html("<img src=" + pick.question + ">");
        } else {
-      $("#questionblock").html("<h2>" + pick.question + "</h2>");
+           $("#questionblock").html("<h2>" + pick.question + "</h2>");
        };
       for (var i = 0; i < pick.choice.length; i++) {
           var userChoice = $("<div>");
@@ -143,7 +144,7 @@ $(document).ready(function() {
 
       var hidpic = setTimeout(function() {
           $("#answerblock").empty();
-          timer = 20;
+          timer = 12;
 
           //runs the score screen if all questions answered
           if ((wrongCount + correctCount + unanswerCount) === qCount) {
@@ -156,6 +157,7 @@ $(document).ready(function() {
               correctCount = 0;
               wrongCount = 0;
               unanswerCount = 0;
+              $("#timeleft").hide();
 
           } else {
               runTimer();
@@ -173,9 +175,9 @@ $(document).ready(function() {
 
       var hidpic = setTimeout(function() {
           $("#answerblock").empty();
-          timer = 20;
+          timer = 12;
 
-          //runs the score screen if all questions answered
+          //runs the scoresheet screen if all questions answered
           if ((wrongCount + correctCount + unanswerCount) === qCount) {
               $("#questionblock").empty();
               $("#questionblock").html("<h3>Game Over! Here's your scoresheet: </h3>");
@@ -186,6 +188,8 @@ $(document).ready(function() {
               correctCount = 0;
               wrongCount = 0;
               unanswerCount = 0;
+              $("#timeleft").hide();
+
 
           } else {
               runTimer();
