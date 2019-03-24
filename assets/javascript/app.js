@@ -165,7 +165,7 @@ $(document).ready(function() {
           }
       
         }, 3000);
-  }
+  };
 
 // Function to display correctImage if answered correct
    function hideCorrectpicture() {
@@ -197,7 +197,7 @@ $(document).ready(function() {
           }
       
         }, 3000);
-  }
+  };
 
   $("#reset").on("click", function() {
       $("#reset").hide();
@@ -205,8 +205,8 @@ $(document).ready(function() {
       $("questionblock").empty();
       for (var i = 0; i <holder.length; i++) {
           options.push(holder[i]);
-      }
-      runTimer();
+      };
       displayQuestion();
+      runTimer();
   });
 });
